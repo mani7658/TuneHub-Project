@@ -1,0 +1,7 @@
+@charset "ISO-8859-1";
+p {
+    font-family: Arial, sans-serif; /* Choose a suitable font */
+    font-size: 24px; /* Adjust the font size as needed */
+    color: #333; /* Adjust the color to your preference */
+    text-align: center; /* Center-align the text */
+}
