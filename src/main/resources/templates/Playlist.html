@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playlist</title>
+<link rel="stylesheet" type="text/css" href="Playlist.css">
+<style>
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.playlist-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.playlist-item:last-child {
+    border-bottom: none;
+}
+
+/* Customize as needed */
+</style>
+</head>
+<body>
+<div class="container">
+<form action="/addplaylist" method="POST">
+    <h1>ADD Playlist</h1>
+    <ul id="playlist">
+        <!-- Playlist items will be dynamically added here -->
+    </ul>
+</div>
+
+<script>
+// Playlist data (you can fetch this from a database or API)
+var playlistData = [
+    { title: "Song 1", artist: "Artist 1", src: "song1.mp3" },
+    { title: "Song 2", artist: "Artist 2", src: "song2.mp3" },
+    // Add more songs as needed
+];
+
+// Function to create playlist items
+function createPlaylistItem(song) {
+    var li = document.createElement("li");
+    li.classList.add("playlist-item");
+    li.innerHTML = `<strong>${song.title}</strong> - ${song.artist}`;
+    return li;
+}
+
+// Function to initialize the playlist
+function initPlaylist() {
+    var playlistElement = document.getElementById("playlist");
+    playlistData.forEach(function(song) {
+        var item = createPlaylistItem(song);
+        playlistElement.appendChild(item);
+    });
+}
+
+// Call initPlaylist when the page loads
+window.onload = initPlaylist;
+</script>
+</body>
+</html>
